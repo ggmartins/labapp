@@ -53,11 +53,14 @@ def index(request, ipaddr):
               city=d['city'],
               state=d['state'],
               country=d['country'],
+              continent=d['continent'],
+              conntype=d['conntype'],
               lat=d['lat'],
               lng=d['long'],
               isp=d['isp'],
               org=d['org'],
               domain=d['domain'],
+              ASnum=d['ASnum'],
               ASorg=d['ASorg'],
               hits=1
           )

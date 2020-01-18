@@ -14,6 +14,16 @@ def s(s):
   else:
       return str(s).replace(',', ' ')
 
+def i(i):
+  if type(i) == int:
+      return i
+  else:
+     try:
+         int(i)
+     except Exception as e:
+         #print("ERROR: mmquery.i " + str(e))
+         return -1
+
 #if len(sys.argv) < 2:
 #  print("usage: " + sys.argv[0]+" ipaddr")
 #  sys.exit(1)
@@ -85,10 +95,13 @@ def mmquery(ipaddr):
     return {'ip': ipaddr, 'city': s(response.city.name),
             'state': s(response.subdivisions.most_specific.iso_code),
             'country': s(response.country.iso_code),
+            'continent': s(response.continent.name),
             'lat': s(response.location.latitude),
             'long': s(response.location.longitude),
             'isp': s(response.traits.isp),
             'org': s(response.traits.organization),
             'domain': s(response.traits.domain),
+            'conntype': s(response.traits.connection_type),
+            'ASnum': i(response.traits.autonomous_system_number),
             'ASorg': s(response.traits.autonomous_system_organization)}
 
