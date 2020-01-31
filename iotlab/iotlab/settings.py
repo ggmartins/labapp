@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -30,6 +29,7 @@ MMGEOIP_KEY = os.environ['MMGEOIP_KEY']
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
+IOTMMGMT_SCRIPT = os.environ['IOTMMGMT_SCRIPT']
 
 # Application definition
 
@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
+    "django_apscheduler",
     'geoip',
+    'iotmmgmt',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +138,4 @@ STATIC_ROOT = '/var/www/html/s/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
